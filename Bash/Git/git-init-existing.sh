@@ -1,0 +1,1 @@
+git init && git add -A && git commit -m "first commit" && git remote add origin git@github.com:412andrewmortimer/Scripts.git && git push -u origin master
