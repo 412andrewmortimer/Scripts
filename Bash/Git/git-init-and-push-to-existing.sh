@@ -1,1 +1,1 @@
-touch README.md && git init && git add README.md && git commit -m "first commit" && git remote add origin git@github.com:412andrewmortimer/Scripts.git && git push -u origin master
+touch README.md && git init && git add README.md && git commit -m "first commit" && git remote add origin git@github.com:[User]/[repo].git && git push -u origin master
