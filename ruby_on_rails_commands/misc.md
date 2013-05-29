@@ -1,4 +1,5 @@
 # Commands
+-----
 - Debug in browser. Append to url. `root_url/?debug_assets=1` 
 ----
 - Start the rails console. `be rails c`
