@@ -31,7 +31,7 @@ function parse_github_user {
 # COMMAND PROMPT CUZTO  #
 ########################
 
-PS1='⦗ ⧟ [$(parse_ruby_version)] ⧟ $(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]] ⧟ ")[\u➤ \W] ⧟ ⦘\n ☀ ☀ ☀ '
+PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘'
 
 # a="\n\[\033[38m\]\u\[\033[01;34m\] \w \[\033[31m\]"
 # b="\`ruby -e \"print RUBY_VERSION\"\`"
@@ -53,6 +53,15 @@ PS1='⦗ ⧟ [$(parse_ruby_version)] ⧟ $(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+################
+# iTerm2      #
+##############
+
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 ############
 # Aliases #
 ##########
@@ -67,4 +76,12 @@ alias hg='history | grep'
 alias fns='find . | ack'
 alias fr='rm -fr'
 alias rbp='source ~/.bash_profile'
+
+##############
+# OS X Only #
+############
+alias dock2d='defaults write com.apple.dock no-glass -boolean YES; killall Dock'
+alias dock3d='defaults write com.apple.dock no-glass -boolean NO; killall Dock'
+alias lame='ssh-add ~/.ssh/id_rsa && mysql.server start'
+
 
