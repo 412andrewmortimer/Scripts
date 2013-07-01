@@ -31,7 +31,8 @@ function parse_github_user {
 # COMMAND PROMPT CUZTO  #
 ########################
 
-PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘'
+
+ PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘'
 
 # a="\n\[\033[38m\]\u\[\033[01;34m\] \w \[\033[31m\]"
 # b="\`ruby -e \"print RUBY_VERSION\"\`"
@@ -71,11 +72,15 @@ alias la='ls -a'
 alias l='ls'
 alias ..='cd ..'
 alias subl='sublime'
+alias bers='bundle exec rails server'
 alias ber='bundle exec rake'
+alias be='bundle exec'
 alias hg='history | grep'
 alias fns='find . | ack'
 alias fr='rm -fr'
 alias rbp='source ~/.bash_profile'
+alias lwp='find `pwd` -name "*.*"'
+alias rewind='git reset --hard HEAD'
 
 ##############
 # OS X Only #
