@@ -67,26 +67,113 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Aliases #
 ##########
 
+#System
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls'
 alias ..='cd ..'
 alias subl='sublime'
+alias fr='rm -fr'
+alias rbp='source ~/.bash_profile'
+
+
+# Ruby
+alias r="ruby"
+alias i="pry --simple-prompt"
+alias rk="rake"
+alias rkt="rake -T"
+alias b="bundle"
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+
+#Ruby on Rails
 alias bers='bundle exec rails server'
 alias ber='bundle exec rake'
 alias be='bundle exec'
+
+#Search
 alias hg='history | grep'
 alias fns='find . | ack'
-alias fr='rm -fr'
-alias rbp='source ~/.bash_profile'
 alias lwp='find `pwd` -name "*.*"'
-alias rewind='git reset --hard HEAD'
 
+#Git
+alias rewind='git reset --hard HEAD'
+alias ga='git add -A'
+alias gc='git commit -m'
+# alias gs='git status'
+
+# -BEGIN-JEG2
+alias g="git status"
+# alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit -m"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gbd="git branch -d"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gcot="git checkout -t"
+alias gf="git fetch"
+alias gm="git merge"
+alias gmn="git merge --no-ff"
+alias gr="git rebase"
+alias gri="git rebase -i"
+alias griu="git rebase -i @{upstream}"
+alias gl="git log"
+alias glr=" git --no-pager log --graph --abbrev-commit --date=relative -10 --all --pretty='tformat:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias gs="git show"
+alias gd="git diff"
+alias gbl="git blame"
+alias gps="git push"
+alias gpsd="git push --delete"
+alias gpso="git push -u origin"
+alias gpsdo="git push --delete origin"
+alias gpl="git pull"
+
+# TMUX
+alias ta="tmux attach"
+alias tls="tmux list-sessions"
+alias tk="tmux kill-server"
+
+# Rails
+# console
+alias rlc="pry --simple-prompt -r ./config/environment"
+# server
+function rls() {
+  if [ -x script/rails ]; then
+    script/rails server thin $@
+  else
+    script/server $@
+  fi
+}
+# generator
+function rlg() {
+  if [ -x script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
+# other
+alias rkdm="rake db:migrate"
+alias rkdmr="rake db:migrate:redo"
+alias rkdr="rake db:rollback"
+alias rkdc="rake db:create"
+alias rklc="rake log:clear"
+alias rkr="rake routes"
+
+# Emacs
+alias e="emacs"
+# inside Emacs terminals
+if [ -n "$EMACS" ]; then
+  alias ri="PAGER='less -R' ri -f ansi"
+  alias ssh="TERM=xterm ssh"
+fi
+# -END - JEG2
 ##############
 # OS X Only #
 ############
 alias dock2d='defaults write com.apple.dock no-glass -boolean YES; killall Dock'
 alias dock3d='defaults write com.apple.dock no-glass -boolean NO; killall Dock'
 alias lame='ssh-add ~/.ssh/id_rsa && mysql.server start'
-
-
