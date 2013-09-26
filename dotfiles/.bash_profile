@@ -1,4 +1,4 @@
-###############
+####kljlkj#####
 # rbenv      #
 #############
 
@@ -33,7 +33,8 @@ function parse_github_user {
 
 
  PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘'
-
+ 
+ git config --global color.ui true
 # a="\n\[\033[38m\]\u\[\033[01;34m\] \w \[\033[31m\]"
 # b="\`ruby -e \"print RUBY_VERSION\"\`"
 # d="\`ruby -e \"print (%x{git branch --no-color 2> /dev/null}.split(%r{\n}).grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1)')\"\`\[\033[37m\]\n"
@@ -75,7 +76,7 @@ alias ..='cd ..'
 alias subl='sublime'
 alias fr='rm -fr'
 alias rbp='source ~/.bash_profile'
-
+alias home="cd ~; clear;"
 
 # Ruby
 alias r="ruby"
@@ -88,7 +89,6 @@ alias bi="bundle install"
 alias bu="bundle update"
 
 #Ruby on Rails
-alias bers='bundle exec rails server'
 alias ber='bundle exec rake'
 alias be='bundle exec'
 
@@ -97,15 +97,9 @@ alias hg='history | grep'
 alias fns='find . | ack'
 alias lwp='find `pwd` -name "*.*"'
 
-#Git
-alias rewind='git reset --hard HEAD'
-alias ga='git add -A'
-alias gc='git commit -m'
-# alias gs='git status'
-
-# -BEGIN-JEG2
+# Git
 alias g="git status"
-# alias ga="git add"
+alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit -m"
 alias gb="git branch"
@@ -130,11 +124,6 @@ alias gpsd="git push --delete"
 alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
-
-# TMUX
-alias ta="tmux attach"
-alias tls="tmux list-sessions"
-alias tk="tmux kill-server"
 
 # Rails
 # console
@@ -163,14 +152,41 @@ alias rkdc="rake db:create"
 alias rklc="rake log:clear"
 alias rkr="rake routes"
 
-# Emacs
-alias e="emacs"
-# inside Emacs terminals
-if [ -n "$EMACS" ]; then
-  alias ri="PAGER='less -R' ri -f ansi"
-  alias ssh="TERM=xterm ssh"
-fi
-# -END - JEG2
+alias chrome='open -a Google\ Chrome'
+function explain {
+  # base url with first command already injected
+  # $ explain tar
+  #   => http://explainshel.com/explain/tar?args=
+  url="http://explainshell.com/explain/$1?args="
+
+  # removes $1 (tar) from arguments ($@)
+  shift;
+
+  # iterates over remaining args and adds builds the rest of the url
+  for i in "$@"; do
+    url=$url"$i""+"
+  done
+
+  # opens url in browser
+  open $url
+}
+
+function gh {
+  url="https://github.com/WalltoWall/$1"
+  chrome $url
+}
+
+function ghc {
+  current_repo=`basename $PWD`
+  url="https://github.com/WalltoWall/$current_repo"
+  chrome $url
+}
+
+function ghci {
+  current_repo=`basename $PWD`
+  url="https://github.com/WalltoWall/$current_repo/issues"
+  chrome $url
+}
 ##############
 # OS X Only #
 ############
