@@ -1,5 +1,5 @@
-####kljlkj#####
-# rbenv      #
+###############
+#   rbenv    #
 #############
 
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -56,7 +56,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 ################
-# iTerm2      #
+#   iTerm2    #
 ##############
 
 export HISTCONTROL=ignoreboth
