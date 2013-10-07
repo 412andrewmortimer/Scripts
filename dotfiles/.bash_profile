@@ -151,6 +151,8 @@ alias rkdr="rake db:rollback"
 alias rkdc="rake db:create"
 alias rklc="rake log:clear"
 alias rkr="rake routes"
+alias cleandb="ber db:drop && ber db:create && ber db:schema:load"
+alias vagrantd='ssh deploy@127.0.0.1 -p 2222'
 
 alias chrome='open -a Google\ Chrome'
 function explain {
