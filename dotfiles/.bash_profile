@@ -27,12 +27,12 @@ function parse_ruby_version {
 function parse_github_user {
   git config --get remote.origin.url | sed 's/^.*:\([^/]*\)\/.*\.git/(\1)/'
 }
-##########################
-# COMMAND PROMPT CUZTO  #
-########################
+###########################
+# terminal customization #
+#########################
 
 
- PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘'
+ PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘☉ '
  
  git config --global color.ui true
 # a="\n\[\033[38m\]\u\[\033[01;34m\] \w \[\033[31m\]"
@@ -48,9 +48,9 @@ function parse_github_user {
 # d="\$"
 # PS1="$a$b$c$d"
 
-################
-# Dir Colors  #
-##############
+#####################
+# Directory Colors #
+###################
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -68,7 +68,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Aliases #
 ##########
 
-#System
+# System
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls'
@@ -91,6 +91,36 @@ alias bu="bundle update"
 #Ruby on Rails
 alias ber='bundle exec rake'
 alias be='bundle exec'
+
+#    console
+alias rlc="pry --simple-prompt -r ./config/environment"
+
+#    server
+function rls() {
+  if [ -x script/rails ]; then
+    script/rails server thin $@
+  else
+    script/server $@
+  fi
+}
+
+#    generator
+function rlg() {
+  if [ -x script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
+
+#    other
+alias rkdm="rake db:migrate"
+alias rkdmr="rake db:migrate:redo"
+alias rkdr="rake db:rollback"
+alias rkdc="rake db:create"
+alias rklc="rake log:clear"
+alias rkr="rake routes"
+alias testdb="RAILS_ENV=test ber db:drop && RAILS_ENV=test ber db:create && RAILS_ENV=test ber db:schema:load"
 
 #Search
 alias hg='history | grep'
@@ -125,36 +155,15 @@ alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
 
-# Rails
-# console
-alias rlc="pry --simple-prompt -r ./config/environment"
-# server
-function rls() {
-  if [ -x script/rails ]; then
-    script/rails server thin $@
-  else
-    script/server $@
-  fi
-}
-# generator
-function rlg() {
-  if [ -x script/rails ]; then
-    script/rails generate $@
-  else
-    script/generate $@
-  fi
-}
-# other
-alias rkdm="rake db:migrate"
-alias rkdmr="rake db:migrate:redo"
-alias rkdr="rake db:rollback"
-alias rkdc="rake db:create"
-alias rklc="rake log:clear"
-alias rkr="rake routes"
-alias cleandb="ber db:drop && ber db:create && ber db:schema:load"
+
+
+# Vagrant
 alias vagrantd='ssh deploy@127.0.0.1 -p 2222'
 
+# Browser
 alias chrome='open -a Google\ Chrome'
+
+#    explain shell
 function explain {
   # base url with first command already injected
   # $ explain tar
@@ -173,6 +182,7 @@ function explain {
   open $url
 }
 
+#    github
 function gh {
   url="https://github.com/WalltoWall/$1"
   chrome $url
