@@ -199,6 +199,13 @@ function ghci {
   url="https://github.com/WalltoWall/$current_repo/issues"
   chrome $url
 }
+
+###############
+##   Misc   ##
+#############
+
+alias tree="tree -C"
+
 ##############
 # OS X Only #
 ############
