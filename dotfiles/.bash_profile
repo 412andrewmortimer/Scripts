@@ -32,7 +32,7 @@ function parse_github_user {
 #########################
 
 
- PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘☉ '
+ PS1='⦗$(parse_ruby_version)⦘$(__git_ps1 "⦗\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]⦘")⦗\W⦘➤ '
  
  git config --global color.ui true
 # a="\n\[\033[38m\]\u\[\033[01;34m\] \w \[\033[31m\]"
@@ -76,6 +76,7 @@ alias ..='cd ..'
 alias subl='sublime'
 alias fr='rm -fr'
 alias rbp='source ~/.bash_profile'
+alias bpe="subl ~/.bash_profile"
 alias home="cd ~; clear;"
 
 # Ruby
@@ -146,6 +147,7 @@ alias gri="git rebase -i"
 alias griu="git rebase -i @{upstream}"
 alias gl="git log"
 alias glr=" git --no-pager log --graph --abbrev-commit --date=relative -10 --all --pretty='tformat:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias glp="git log --pretty=oneline --abbrev-commit"
 alias gs="git show"
 alias gd="git diff"
 alias gbl="git blame"
@@ -155,12 +157,21 @@ alias gpso="git push -u origin"
 alias gpsdo="git push --delete origin"
 alias gpl="git pull"
 
+function gloc {
+  git ls-files | xargs wc -l
+}
+
+
 
 
 # Vagrant
 alias vagrantd='ssh deploy@127.0.0.1 -p 2222'
 
-# Browser
+############
+# Browser #
+##########
+
+#    chrome
 alias chrome='open -a Google\ Chrome'
 
 #    explain shell
@@ -205,6 +216,7 @@ function ghci {
 #############
 
 alias tree="tree -C"
+
 
 ##############
 # OS X Only #
