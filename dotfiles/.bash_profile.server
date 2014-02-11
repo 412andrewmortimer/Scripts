@@ -1,3 +1,5 @@
+. ~/.bashrc
+
 ##################
 # git completion #
 #################
@@ -35,6 +37,7 @@ alias home="cd ~; clear;"
 alias v="vim"
 alias md5="openssl passwd -1"
 alias pw="openssl passwd -crypt"
+alias p="cd /etc/puppetlabs/puppet"
 
 # ruby
 alias r="ruby"
@@ -53,7 +56,6 @@ alias bers="bundle exec rails server"
 # search #
 #########
 alias hg='history | grep'
-alias fns='find . | ack'
 alias lwp='find `pwd` -name "*.*"'
 
 ########
@@ -74,13 +76,3 @@ alias glr=" git --no-pager log --graph --abbrev-commit --date=relative -10 --all
 alias glp="git log --pretty=oneline --abbrev-commit"
 alias gpl="git pull"
 
-########
-# ssh #
-######
-alias rmk='ssh-keygen -R'
-alias ssa='ssh-add ~/.ssh/id_rsa.pub'
-
-#########
-# misc #
-#######
-alias tree="tree -C"
