@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " vim interactive mode, use interactive shell
 set shellcmdflag=-lic
 

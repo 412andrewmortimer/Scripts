@@ -38,6 +38,7 @@ alias v="vim"
 alias md5="openssl passwd -1"
 alias pw="openssl passwd -crypt"
 alias p="cd /etc/puppetlabs/puppet"
+alias r10k="/opt/puppet/bin/r10k"
 
 # ruby
 alias r="ruby"
