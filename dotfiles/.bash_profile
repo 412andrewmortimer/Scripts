@@ -75,7 +75,7 @@ alias bu="bundle update"
 alias ber='bundle exec rake'
 
 # ruby on rails
-alias cleansandbox="bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate && bundle exec rake db:seed"
+alias clean="bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate && bundle exec rake db:seed"
 alias bers="bundle exec rails server"
 alias berts="RAILS_ENV=test bundle exec rails server -p 4242"
 alias stag="cat config/deploy/staging.rb"
