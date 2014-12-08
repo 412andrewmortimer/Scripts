@@ -66,6 +66,10 @@ alias bpe="subl ~/.bash_profile"
 alias home="cd ~; clear;"
 alias w="cd ~/ww_rcms"
 alias ww="cd ~/wtw_cms_beta"
+alias www="cd ~/ww-server-aws"
+alias wwww="cd ~/WTW_2810"
+alias ang="cd ~/ww_rcms/core/app/assets/javascripts/angular"
+alias spec="cd ~/ww_rcms/test/javascripts/"
 # ruby
 
 alias b="bundle"
@@ -125,7 +129,7 @@ function gloc {
 ############
 # vagrant #
 ##########
-alias vagrantd='ssh deploy@127.0.0.1 -p 2222'
+alias vagrantd='ssh deploy@127.0.0.1 -p 2020'
 alias avk='ssh-add ~/.vagrant.d/insecure_private_key'
 
 ############
