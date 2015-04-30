@@ -5,7 +5,6 @@ export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/packer
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ##########
 # rbenv #
@@ -33,13 +32,6 @@ function parse_github_user {
 }
 
 PS1='\[\e[1;34m\]⦗$(parse_ruby_version)⦘\[\e[m\]$(__git_ps1 "\[\e[1;35m\]⦗%s⦘\[\e[0m\]")\[\e[1;34m\]⦗\W⦘\[\e[m\]\[\e[1;32m\]➤\[\e[m\] '
-git config --global color.ui true
-
-#####################
-# directory colors #
-###################
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 
 ###########
 # iTerm2 #
@@ -66,12 +58,12 @@ alias bpe="subl ~/.bash_profile"
 alias home="cd ~; clear;"
 alias w="cd ~/ww_rcms"
 alias ww="cd ~/wtw_cms_beta"
-alias www="cd ~/ww-server-aws"
+alias www="cd ~/ww-serve"
 alias wwww="cd ~/WTW_2810"
 alias ang="cd ~/ww_rcms/core/app/assets/javascripts/angular"
 alias spec="cd ~/ww_rcms/test/javascripts/"
-# ruby
 
+# ruby
 alias b="bundle"
 alias be="bundle exec"
 alias bi="bundle install"
@@ -84,8 +76,10 @@ alias bers="bundle exec rails server"
 alias berts="RAILS_ENV=test bundle exec rails server -p 4242"
 alias stag="cat config/deploy/staging.rb"
 alias prod="cat config/deploy/production.rb"
+
 #  console
 alias rlc="pry --simple-prompt -r ./config/environment"
+
 #  server
 function rls() {
   if [ -x script/rails ]; then
@@ -129,7 +123,7 @@ function gloc {
 ############
 # vagrant #
 ##########
-alias vagrantd='ssh deploy@127.0.0.1 -p 2020'
+alias vagrantd='ssh deploy@127.0.0.1 -p'
 alias avk='ssh-add ~/.vagrant.d/insecure_private_key'
 
 ############
@@ -179,18 +173,11 @@ function ghci {
 ########
 # ssh #
 ######
-alias rmk='ssh-keygen -R'
-alias ssa='ssh-add ~/.ssh/id_rsa.pub'
 alias pup='ssh devops@puppet.walltowall.com'
+alias wwpgh="ssh root@192.241.137.16"
 
 #########
 # misc #
 #######
 alias md5="openssl passwd -1"
 alias pw="openssl passwd -crypt"
-
-##############
-# os x only #
-############
-alias lame='ssh-add ~/.ssh/id_rsa && mysql.server start'
-
