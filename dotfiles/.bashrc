@@ -20,7 +20,6 @@ function parse_github_user {
 
 PS1='\[\e[1;34m\]⦗$(parse_ruby_version)⦘\[\e[m\]$(__git_ps1 "\[\e[1;35m\]⦗%s⦘\[\e[0m\]")\[\e[1;34m\]⦗\W⦘\[\e[m\]\[\e[1;32m\]➤\[\e[m\] '
 
-
 ############
 # aliases #
 ##########
@@ -35,7 +34,6 @@ alias ...='cd ../..'
 alias fr='rm -fr'
 alias home="cd ~; clear;"
 
-
 # ruby
 alias b="bundle"
 alias be="bundle exec"
@@ -45,7 +43,6 @@ alias ber='bundle exec rake'
 
 # ruby on rails
 alias bers="bundle exec rails server"
-
 
 #  console
 alias rlc="pry --simple-prompt -r ./config/environment"
